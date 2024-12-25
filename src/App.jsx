@@ -11,6 +11,7 @@ const App = () => {
             <Router>
             <Nav />
             <Routes>
+                <Route path='/' element={<RecipeList />}/>
                 <Route path='/recipe' element={<RecipeList />}/>
                 <Route path='/recipe/meal/letter/:letter' element={<RecipeList />}/>
                 <Route path='/recipe/meal/name/:name' element={<Recipe />}/>
