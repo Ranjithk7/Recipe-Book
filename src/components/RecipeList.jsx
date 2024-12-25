@@ -10,7 +10,7 @@ const RecipeList = () => {
     const { letter } = useParams();
     
     useEffect(() => {
-        const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`;
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter ? letter : a}`;
         dispatch(fetchAllRecipe({url}));
     }, [letter, dispatch]);    
     
