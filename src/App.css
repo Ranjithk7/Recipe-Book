@@ -1,0 +1,14 @@
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(61, 29, 17, 1);
+}
+
+nav {
+    background-color: rgb(43, 20, 11);
+    height: 80px;
+}
