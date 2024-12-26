@@ -14,12 +14,40 @@ export const fetchAllRecipe = createAsyncThunk(
     }
 )
 
+export const filterRecipeByCountry = createAsyncThunk(
+    'filter-recipe-country',
+    async ({url}, { rejectWithValue}) => {
+        try {
+            const res = await axios.get(url);
+            const data = await res.data?.meals;
+            return data;
+        } catch (err) {
+            return rejectWithValue(err.response?.data || err.message);
+        }
+    }
+)
+
+export const filterRecipeByCategory = createAsyncThunk(
+    'filter-recipe-category',
+    async ({url}, { rejectWithValue}) => {
+        try {
+            const res = await axios.get(url);
+            const data = await res.data?.meals;
+            return data;
+        } catch (err) {
+            return rejectWithValue(err.response?.data || err.message);
+        }
+    }
+)
+
 const RecipeSlice = createSlice({
     name:'recipe',
     initialState: {
         fetchStatus: '',
         data : [],
-        error: null
+        error: null,
+        areas: [],
+        category: []
     },
     extraReducers: (builder) => {
         builder
@@ -33,6 +61,12 @@ const RecipeSlice = createSlice({
         .addCase(fetchAllRecipe.rejected, (state, action) => {
             state.fetchStatus = 'error';
             state.error = action.payload;
+        })
+        .addCase(filterRecipeByCountry.fulfilled, (state, action) => {
+            state.areas = action.payload;
+        })
+        .addCase(filterRecipeByCategory.fulfilled, (state, action) => {
+            state.category = action.payload;
         })
     }
 })

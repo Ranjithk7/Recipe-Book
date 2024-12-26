@@ -11,17 +11,19 @@ const BrowseMeals = () => {
         }
     }, [order.length])
     return (
-        <div className="h4 d-flex flex-wrap justify-content-center text-white gap-1 mt-4 ms-2 me-2">
+        <div className="container-fluid">
+            <h5 className="text-white text-center mb-2">Get Meals By Order</h5>
+            <div className="d-flex flex-wrap justify-content-center">
             {letters.map((lett, i) => (
-                <>
-                <Link to={`recipe/meal/letter/${lett.toLowerCase()}`}
-                    key={i}
-                    className="text-decoration-none h4 text-warning">
-                    {lett}
-                </Link>
-                <div key={lett}>{lett === 'Z' ? '' :' /'}</div>
-                </>
+                <div key={i} className="d-flex text-white h4">
+                    <Link to={`recipe/meal/letter/${lett.toLowerCase()}`}
+                        className="text-decoration-none text-warning">
+                        {lett}
+                    </Link>
+                    <div className="ms-1 me-1">{lett === 'Z' ? '' :'/'}</div>
+                </div>
             ))}
+            </div>
         </div>
     )
 } 
