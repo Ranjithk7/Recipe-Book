@@ -11,3 +11,21 @@ body {
 nav {
     background-color: rgb(43, 20, 11);
 }
+
+@media  (min-width:500px) {
+    .side-bar {
+        width: 50%;
+    }
+}
+
+@media  (min-width:800px) {
+    .side-bar {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .side-bar {
+        width: 25%;
+    }
+}
